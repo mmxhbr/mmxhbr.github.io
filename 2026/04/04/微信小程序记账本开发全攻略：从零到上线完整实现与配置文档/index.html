@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 7.3.0">
+
+  
+
+  
+
+  
+    <meta name="author" content="mmxhbr">
+  
+
+  
+
+  
+
+  <title>微信小程序记账本开发全攻略：从零到上线完整实现与配置文档 | 雪月花</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+
+  
+
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          雪月花
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="/archives">归档</a></li>
+        
+          <li class="navbar-list-item"><a href="/links">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">微信小程序记账本开发全攻略：从零到上线完整实现与配置文档</h1>
+          <h2 class="title-sub-wrap">
+            <strong>mmxhbr</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2026-04-04T07:00:00.000Z" itemprop="datePublished">2026-04-04</time>
+          </h2>
+          
+            <h2 class="last-time">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2026-04-06T03:10:00.962Z" itemprop="dateUpdated">2026-04-06</time>
+            </h2>
+          
+          
+          <ul class="wrap-list dark">
+  
+    <li><a href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">📒 微信小程序</a></li>
+    
+    <li><a href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">📒 前端开发</a></li>
+    
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">🏷️ 微信小程序</a></li>
+  
+    <li><a href="/tags/%E8%AE%B0%E8%B4%A6%E6%9C%AC%E5%BC%80%E5%8F%91/">🏷️ 记账本开发</a></li>
+  
+    <li><a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8A%E7%BA%BF/">🏷️ 小程序上线</a></li>
+  
+    <li><a href="/tags/%E5%8E%9F%E7%94%9F%E5%B0%8F%E7%A8%8B%E5%BA%8F/">🏷️ 原生小程序</a></li>
+  
+    <li><a href="/tags/%E5%89%8D%E7%AB%AF%E5%AE%9E%E6%88%98/">🏷️ 前端实战</a></li>
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <p>对于前端新手而言，微信小程序是极佳的实战项目载体，而<strong>轻量化记账本</strong>是兼顾实用性、低开发门槛、可快速上线的首选练手项目。本文将带你从零开始，完成一个完整可用的微信小程序记账本开发，涵盖「账号注册→环境搭建→功能开发→本地调试→审核上线」全流程，全程无复杂后端开发（基于小程序本地存储实现数据持久化），代码可直接复制复用，新手也能零踩坑完成上线。</p>
+<p>本文档为标准Markdown格式，完美适配Hexo博客发布，关键上线步骤配套截图标注说明，可直接插入对应截图使用。</p>
+<h2 id="一、前置准备（开发前必做）"><a href="#一、前置准备（开发前必做）" class="headerlink" title="一、前置准备（开发前必做）"></a>一、前置准备（开发前必做）</h2><p>在开始开发前，需完成账号注册、工具安装两项核心准备，全程免费无门槛。</p>
+<h3 id="1-1-注册微信小程序账号"><a href="#1-1-注册微信小程序账号" class="headerlink" title="1.1 注册微信小程序账号"></a>1.1 注册微信小程序账号</h3><p>微信小程序的开发、发布必须基于微信公众平台的小程序账号，个人开发者可免费注册，步骤如下：</p>
+<ol>
+<li>访问微信公众平台官网：<a href="sslocal://flow/file_open?url=https%3A%2F%2Fmp.weixin.qq.com%2F&flow_extra=eyJsaW5rX3R5cGUiOiJjb2RlX2ludGVycHJldGVyIn0=">https://mp.weixin.qq.com/</a>，点击右上角「立即注册」</li>
+<li>账号类型选择「小程序」（<strong>关键：不要选公众号&#x2F;订阅号</strong>）</li>
+<li>按页面提示填写邮箱、密码，完成邮箱验证</li>
+<li>主体类型选择「个人」，填写姓名、身份证号，完成微信扫码实名认证</li>
+<li>注册完成后，登录小程序后台，在「设置」→「基本设置」中，记录你的<strong>AppID</strong>（小程序唯一标识，开发、上线必须用到）</li>
+</ol>
+<p><img src="/%E4%BD%A0%E7%9A%84%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5/%E5%9B%BE%E5%BA%8A%E5%9C%B0%E5%9D%80" alt="图1：微信公众平台小程序注册页面"></p>
+<blockquote>
+<p>截图说明：标注「账号类型选择-小程序」、「邮箱填写区」、「主体类型选择-个人」三个核心位置</p>
+</blockquote>
+<h3 id="1-2-安装微信开发者工具"><a href="#1-2-安装微信开发者工具" class="headerlink" title="1.2 安装微信开发者工具"></a>1.2 安装微信开发者工具</h3><p>微信开发者工具是官方提供的一站式开发、调试、上传工具，免费适配Windows&#x2F;Mac系统：</p>
+<ol>
+<li>访问官方下载地址：<a href="sslocal://flow/file_open?url=https%3A%2F%2Fdevelopers.weixin.qq.com%2Fminiprogram%2Fdev%2Fdevtools%2Fdownload.html&flow_extra=eyJsaW5rX3R5cGUiOiJjb2RlX2ludGVycHJldGVyIn0=">https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html</a></li>
+<li>根据你的系统选择对应稳定版安装包，双击安装全程默认下一步即可</li>
+<li>安装完成后，打开工具，用微信扫码登录，即可进入开发界面</li>
+</ol>
+<h3 id="1-3-前置知识说明"><a href="#1-3-前置知识说明" class="headerlink" title="1.3 前置知识说明"></a>1.3 前置知识说明</h3><p>本项目基于微信小程序原生框架开发，无需后端经验，只需掌握基础的HTML&#x2F;CSS&#x2F;JS知识即可上手：</p>
+<ul>
+<li>小程序的<code>WXML</code>对应HTML，用于页面结构编写</li>
+<li>小程序的<code>WXSS</code>对应CSS，用于页面样式编写</li>
+<li>小程序的逻辑层基于JavaScript开发，语法完全兼容</li>
+</ul>
+<h2 id="二、项目初始化与结构说明"><a href="#二、项目初始化与结构说明" class="headerlink" title="二、项目初始化与结构说明"></a>二、项目初始化与结构说明</h2><h3 id="2-1-新建小程序项目"><a href="#2-1-新建小程序项目" class="headerlink" title="2.1 新建小程序项目"></a>2.1 新建小程序项目</h3><ol>
+<li>打开微信开发者工具，点击左侧「小程序」→ 「+」新建项目</li>
+<li>填写项目配置信息：<ul>
+<li>项目名称：自定义，如「个人记账本」</li>
+<li>目录：选择本地空文件夹，作为项目存放路径</li>
+<li>AppID：填写前文记录的小程序AppID（<strong>关键：不要选测试号，否则无法上线</strong>）</li>
+<li>后端服务：选择「不使用云服务」（本项目用本地存储实现，无需后端）</li>
+<li>模板选择：「基础模板-不使用模板」</li>
+</ul>
+</li>
+<li>点击「确定」，完成项目创建，工具会自动生成小程序基础框架</li>
+</ol>
+<p><img src="/%E4%BD%A0%E7%9A%84%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5/%E5%9B%BE%E5%BA%8A%E5%9C%B0%E5%9D%80" alt="图2：微信开发者工具新建项目页面"></p>
+<blockquote>
+<p>截图说明：标注「AppID填写区」、「项目目录选择」、「不使用云服务」三个核心配置位置</p>
+</blockquote>
+<h3 id="2-2-项目核心目录结构说明"><a href="#2-2-项目核心目录结构说明" class="headerlink" title="2.2 项目核心目录结构说明"></a>2.2 项目核心目录结构说明</h3><p>新建项目后，左侧目录树的核心文件&#x2F;文件夹作用如下，新手重点关注标⭐的内容：<br>├── app.js ⭐ 小程序全局逻辑文件，生命周期、全局数据都在这里定义<br>├── app.json ⭐ 小程序全局配置文件，页面路径、导航栏、底部 tab 栏都在这里配置<br>├── app.wxss ⭐ 小程序全局样式文件，所有页面通用的样式写在这里<br>├── sitemap.json 小程序搜索配置，默认生成无需修改<br>├── pages&#x2F; ⭐ 存放所有页面的文件夹，每个页面对应一个子文件夹<br>│ ├── index&#x2F; 首页（记账面板页）<br>│ ├── bill&#x2F; 账单列表页<br>│ ├── stats&#x2F; 数据统计页<br>│ └── category&#x2F; 分类管理页<br>├── utils&#x2F; ⭐ 存放通用工具函数，如日期格式化、数据计算<br>└── components&#x2F; 存放自定义组件，如记账弹窗、图表组件</p>
+<h2 id="三、需求设计与功能规划"><a href="#三、需求设计与功能规划" class="headerlink" title="三、需求设计与功能规划"></a>三、需求设计与功能规划</h2><p>本项目打造一个轻量化、无广告、纯本地的个人记账本，核心功能规划如下，完全满足个人日常记账需求，且符合个人小程序审核规范：</p>
+<table>
+<thead>
+<tr>
+<th>核心模块</th>
+<th>功能详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>快速记账</td>
+<td>支持收入&#x2F;支出类型切换、金额输入、分类选择、日期&#x2F;备注填写，一键保存</td>
+</tr>
+<tr>
+<td>分类管理</td>
+<td>预设常用收支分类，支持自定义新增&#x2F;删除分类，适配不同用户需求</td>
+</tr>
+<tr>
+<td>账单列表</td>
+<td>按日期分组展示历史账单，支持单条账单删除、按时间筛选</td>
+</tr>
+<tr>
+<td>数据统计</td>
+<td>月度收支总额统计、收支分类占比饼图展示，直观查看消费情况</td>
+</tr>
+<tr>
+<td>数据持久化</td>
+<td>基于小程序本地存储实现，数据保存在用户手机本地，无需服务器</td>
+</tr>
+</tbody></table>
+<h2 id="四、核心代码实现（可直接复制复用）"><a href="#四、核心代码实现（可直接复制复用）" class="headerlink" title="四、核心代码实现（可直接复制复用）"></a>四、核心代码实现（可直接复制复用）</h2><h3 id="4-1-全局配置实现"><a href="#4-1-全局配置实现" class="headerlink" title="4.1 全局配置实现"></a>4.1 全局配置实现</h3><h4 id="4-1-1-全局配置文件-app-json"><a href="#4-1-1-全局配置文件-app-json" class="headerlink" title="4.1.1 全局配置文件 app.json"></a>4.1.1 全局配置文件 <code>app.json</code></h4><p>该文件控制小程序的页面注册、全局窗口样式、底部导航栏，是小程序的核心配置文件，直接替换生成的默认代码即可：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;pages/index/index&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;pages/bill/bill&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;pages/stats/stats&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;pages/category/category&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;window&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;backgroundTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;light&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#1677ff&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;个人记账本&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;white&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#f5f5f5&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;tabBar&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;color&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#666666&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;selectedColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#1677ff&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;backgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#ffffff&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;borderStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;black&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;list&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;pagePath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/index/index&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;记账&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;iconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;images/tab/home.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;selectedIconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;images/tab/home-active.png&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;pagePath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/bill/bill&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;账单&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;iconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;images/tab/bill.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;selectedIconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;images/tab/bill-active.png&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;pagePath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pages/stats/stats&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;统计&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;iconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;images/tab/stats.png&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;selectedIconPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;images/tab/stats-active.png&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;style&quot;</span><span class="punctuation">:</span> <span class="string">&quot;v2&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;sitemapLocation&quot;</span><span class="punctuation">:</span> <span class="string">&quot;sitemap.json&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;lazyCodeLoading&quot;</span><span class="punctuation">:</span> <span class="string">&quot;requiredComponents&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>配置说明：</p>
+<ol>
+<li>pages数组：注册所有页面，路径必须和 pages 文件夹下的页面路径完全对应</li>
+<li>window字段：配置全局导航栏样式，这里使用蓝色主题，可自行修改颜色</li>
+<li>tabBar字段：配置底部导航栏，包含记账、账单、统计 3 个核心页面，iconPath 需自行替换为你的图标文件路径（可在阿里巴巴矢量图标库下载免费图标）</li>
+</ol>
+</blockquote>
+<h4 id="4-1-2-全局逻辑文件-app-js"><a href="#4-1-2-全局逻辑文件-app-js" class="headerlink" title="4.1.2 全局逻辑文件 app.js"></a>4.1.2 全局逻辑文件 app.js</h4><p>定义全局数据、通用方法和小程序生命周期，实现本地数据的初始化：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="title class_">App</span>(&#123;</span><br><span class="line">  <span class="comment">// 全局数据</span></span><br><span class="line">  <span class="attr">globalData</span>: &#123;</span><br><span class="line">    <span class="comment">// 预设收支分类</span></span><br><span class="line">    <span class="attr">expenseCategory</span>: [<span class="string">&#x27;餐饮&#x27;</span>, <span class="string">&#x27;交通&#x27;</span>, <span class="string">&#x27;购物&#x27;</span>, <span class="string">&#x27;娱乐&#x27;</span>, <span class="string">&#x27;住房&#x27;</span>, <span class="string">&#x27;医疗&#x27;</span>, <span class="string">&#x27;教育&#x27;</span>, <span class="string">&#x27;其他&#x27;</span>],</span><br><span class="line">    <span class="attr">incomeCategory</span>: [<span class="string">&#x27;工资&#x27;</span>, <span class="string">&#x27;奖金&#x27;</span>, <span class="string">&#x27;理财&#x27;</span>, <span class="string">&#x27;兼职&#x27;</span>, <span class="string">&#x27;红包&#x27;</span>, <span class="string">&#x27;其他&#x27;</span>],</span><br><span class="line">    <span class="comment">// 账单列表</span></span><br><span class="line">    <span class="attr">billList</span>: []</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 小程序启动时执行</span></span><br><span class="line">  <span class="title function_">onLaunch</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">initBillData</span>()</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始化本地账单数据</span></span><br><span class="line">  <span class="title function_">initBillData</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 从本地存储读取账单数据，无数据则返回空数组</span></span><br><span class="line">    <span class="keyword">const</span> billList = wx.<span class="title function_">getStorageSync</span>(<span class="string">&#x27;billList&#x27;</span>) || []</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">globalData</span>.<span class="property">billList</span> = billList</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 保存账单数据到本地存储</span></span><br><span class="line">  <span class="title function_">saveBillData</span>(<span class="params">billList</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">globalData</span>.<span class="property">billList</span> = billList</span><br><span class="line">    wx.<span class="title function_">setStorageSync</span>(<span class="string">&#x27;billList&#x27;</span>, billList)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-1-3-全局样式文件-app-wxss"><a href="#4-1-3-全局样式文件-app-wxss" class="headerlink" title="4.1.3 全局样式文件 app.wxss"></a>4.1.3 全局样式文件 app.wxss</h4><p>编写通用样式，统一页面风格，避免重复代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* app.wxss */</span></span><br><span class="line"><span class="attribute">page</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#f5f7fa</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: -apple-system, BlinkMacSystemFont, <span class="string">&#x27;Helvetica Neue&#x27;</span>, sans-serif;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 通用容器 */</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20</span>rpx;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 通用卡片样式 */</span></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ffffff</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">16</span>rpx;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2</span>rpx <span class="number">12</span>rpx <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.04</span>);</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">20</span>rpx;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">30</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 通用按钮样式 */</span></span><br><span class="line"><span class="selector-class">.btn-primary</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#1677ff</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50</span>rpx;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">88</span>rpx;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">88</span>rpx;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">32</span>rpx;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">500</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.btn-primary</span><span class="selector-pseudo">:active</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#4096ff</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 文本样式 */</span></span><br><span class="line"><span class="selector-class">.text-muted</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#999999</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">26</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.text-expense</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ff4d4f</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.text-income</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#52c41a</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-工具函数封装"><a href="#4-2-工具函数封装" class="headerlink" title="4.2 工具函数封装"></a>4.2 工具函数封装</h3><p>在utils文件夹下新建util.js，封装日期格式化、金额计算等通用函数，方便各页面调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// utils/util.js</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 格式化日期，输出 YYYY-MM-DD 格式</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">Date</span>&#125; date 日期对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">string</span>&#125; 格式化后的日期</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">formatDate</span> = (<span class="params">date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> year = date.<span class="title function_">getFullYear</span>()</span><br><span class="line">  <span class="keyword">const</span> month = <span class="title class_">String</span>(date.<span class="title function_">getMonth</span>() + <span class="number">1</span>).<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  <span class="keyword">const</span> day = <span class="title class_">String</span>(date.<span class="title function_">getDate</span>()).<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;year&#125;</span>-<span class="subst">$&#123;month&#125;</span>-<span class="subst">$&#123;day&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 格式化日期为 年-月 格式，用于统计</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">Date</span>&#125; date 日期对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">string</span>&#125; 格式化后的月份</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">formatMonth</span> = (<span class="params">date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> year = date.<span class="title function_">getFullYear</span>()</span><br><span class="line">  <span class="keyword">const</span> month = <span class="title class_">String</span>(date.<span class="title function_">getMonth</span>() + <span class="number">1</span>).<span class="title function_">padStart</span>(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;year&#125;</span>-<span class="subst">$&#123;month&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 计算月度收支总额</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">Array</span>&#125; billList 账单列表</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; month 月份，格式YYYY-MM</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Object</span>&#125; 收支统计结果</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">calcMonthStats</span> = (<span class="params">billList, month</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> totalExpense = <span class="number">0</span></span><br><span class="line">  <span class="keyword">let</span> totalIncome = <span class="number">0</span></span><br><span class="line">  <span class="keyword">const</span> categoryStats = &#123;&#125;</span><br><span class="line"></span><br><span class="line">  billList.<span class="title function_">forEach</span>(<span class="function"><span class="params">bill</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (bill.<span class="property">date</span>.<span class="title function_">startsWith</span>(month)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (bill.<span class="property">type</span> === <span class="string">&#x27;expense&#x27;</span>) &#123;</span><br><span class="line">        totalExpense += <span class="title class_">Number</span>(bill.<span class="property">amount</span>)</span><br><span class="line">        <span class="comment">// 分类统计</span></span><br><span class="line">        categoryStats[bill.<span class="property">category</span>] = (categoryStats[bill.<span class="property">category</span>] || <span class="number">0</span>) + <span class="title class_">Number</span>(bill.<span class="property">amount</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        totalIncome += <span class="title class_">Number</span>(bill.<span class="property">amount</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    totalExpense,</span><br><span class="line">    totalIncome,</span><br><span class="line">    <span class="attr">balance</span>: totalIncome - totalExpense,</span><br><span class="line">    categoryStats</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  formatDate,</span><br><span class="line">  formatMonth,</span><br><span class="line">  calcMonthStats</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-核心页面开发"><a href="#4-3-核心页面开发" class="headerlink" title="4.3 核心页面开发"></a>4.3 核心页面开发</h3><h4 id="4-3-1-首页（记账面板页）pages-index-index"><a href="#4-3-1-首页（记账面板页）pages-index-index" class="headerlink" title="4.3.1 首页（记账面板页）pages&#x2F;index&#x2F;index"></a>4.3.1 首页（记账面板页）pages&#x2F;index&#x2F;index</h4><p>这是小程序的核心页面，实现收支类型切换、金额输入、分类选择、账单保存功能，是用户打开小程序的默认页面。</p>
+<ol>
+<li><p>页面结构 index.wxml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 收支类型切换 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;type-tabs card&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;tab-item &#123;&#123;currentType === &#x27;expense&#x27; ? &#x27;active&#x27; : &#x27;&#x27;&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">bindtap</span>=<span class="string">&quot;switchType&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">data-type</span>=<span class="string">&quot;expense&quot;</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      支出</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;tab-item &#123;&#123;currentType === &#x27;income&#x27; ? &#x27;active&#x27; : &#x27;&#x27;&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">bindtap</span>=<span class="string">&quot;switchType&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">data-type</span>=<span class="string">&quot;income&quot;</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      收入</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 金额输入 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;amount-card card&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;amount-unit&quot;</span>&gt;</span>¥<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;amount-input&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">&quot;digit&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">placeholder</span>=<span class="string">&quot;0.00&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">value</span>=<span class="string">&quot;&#123;&#123;amount&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">bindinput</span>=<span class="string">&quot;onAmountInput&quot;</span></span></span><br><span class="line"><span class="tag">    /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 分类选择 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;category-card card&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;card-title&quot;</span>&gt;</span>选择分类<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;category-list&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">view</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;categoryList&#125;&#125;&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">wx:key</span>=<span class="string">&quot;index&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">&quot;category-item &#123;&#123;selectedCategory === item ? &#x27;active&#x27; : &#x27;&#x27;&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">bindtap</span>=<span class="string">&quot;selectCategory&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">data-category</span>=<span class="string">&quot;&#123;&#123;item&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">      &gt;</span></span><br><span class="line">        &#123;&#123;item&#125;&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 日期与备注 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;extra-card card&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;extra-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">text</span>&gt;</span>日期<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">picker</span> <span class="attr">mode</span>=<span class="string">&quot;date&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&#123;&#123;date&#125;&#125;&quot;</span> <span class="attr">bindchange</span>=<span class="string">&quot;onDateChange&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;picker-text&quot;</span>&gt;</span>&#123;&#123;date&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">picker</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;extra-item&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">text</span>&gt;</span>备注<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">&quot;remark-input&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">placeholder</span>=<span class="string">&quot;选填，添加备注&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">value</span>=<span class="string">&quot;&#123;&#123;remark&#125;&#125;&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">bindinput</span>=<span class="string">&quot;onRemarkInput&quot;</span></span></span><br><span class="line"><span class="tag">      /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 保存按钮 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;btn-primary&quot;</span> <span class="attr">bindtap</span>=<span class="string">&quot;saveBill&quot;</span>&gt;</span>保存账单<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>页面样式 index.wxss</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 类型切换tab */</span></span><br><span class="line"><span class="selector-class">.type-tabs</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10</span>rpx;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">20</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.tab-item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">70</span>rpx;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">12</span>rpx;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">32</span>rpx;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">500</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.3s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.tab-item</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#1677ff</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 金额输入 */</span></span><br><span class="line"><span class="selector-class">.amount-card</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">60</span>rpx <span class="number">30</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.amount-unit</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">48</span>rpx;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#1677ff</span>;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">10</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.amount-input</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">80</span>rpx;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">700</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: left;</span><br><span class="line">  <span class="attribute">min-width</span>: <span class="number">300</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 分类选择 */</span></span><br><span class="line"><span class="selector-class">.card-title</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">32</span>rpx;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">500</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">30</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.category-list</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">20</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.category-item</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">16</span>rpx <span class="number">32</span>rpx;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#f5f7fa</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50</span>rpx;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">28</span>rpx;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.3s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.category-item</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#1677ff</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 额外信息 */</span></span><br><span class="line"><span class="selector-class">.extra-item</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20</span>rpx <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1</span>rpx solid <span class="number">#f0f0f0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.extra-item</span><span class="selector-pseudo">:last-child</span> &#123;</span><br><span class="line">  <span class="attribute">border-bottom</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.extra-item</span> <span class="selector-tag">text</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">30</span>rpx;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.picker-text</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">28</span>rpx;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.remark-input</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: right;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">28</span>rpx;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">400</span>rpx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>页面逻辑 index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">getApp</span>()</span><br><span class="line"><span class="keyword">const</span> &#123; formatDate &#125; = <span class="built_in">require</span>(<span class="string">&#x27;../../utils/util.js&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">currentType</span>: <span class="string">&#x27;expense&#x27;</span>, <span class="comment">// 当前类型：支出/收入</span></span><br><span class="line">    <span class="attr">amount</span>: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 金额</span></span><br><span class="line">    <span class="attr">categoryList</span>: [], <span class="comment">// 分类列表</span></span><br><span class="line">    <span class="attr">selectedCategory</span>: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 选中的分类</span></span><br><span class="line">    <span class="attr">date</span>: <span class="title function_">formatDate</span>(), <span class="comment">// 日期</span></span><br><span class="line">    <span class="attr">remark</span>: <span class="string">&#x27;&#x27;</span> <span class="comment">// 备注</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="title function_">onLoad</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">initCategoryList</span>()</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始化分类列表</span></span><br><span class="line">  <span class="title function_">initCategoryList</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; currentType &#125; = <span class="variable language_">this</span>.<span class="property">data</span></span><br><span class="line">    <span class="keyword">const</span> categoryList = currentType === <span class="string">&#x27;expense&#x27;</span> </span><br><span class="line">      ? app.<span class="property">globalData</span>.<span class="property">expenseCategory</span> </span><br><span class="line">      : app.<span class="property">globalData</span>.<span class="property">incomeCategory</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      categoryList,</span><br><span class="line">      <span class="attr">selectedCategory</span>: categoryList[<span class="number">0</span>] <span class="comment">// 默认选中第一个分类</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 切换收支类型</span></span><br><span class="line">  <span class="title function_">switchType</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> type = e.<span class="property">currentTarget</span>.<span class="property">dataset</span>.<span class="property">type</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      <span class="attr">currentType</span>: type</span><br><span class="line">    &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">initCategoryList</span>() <span class="comment">// 切换类型后更新分类列表</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 金额输入</span></span><br><span class="line">  <span class="title function_">onAmountInput</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      <span class="attr">amount</span>: e.<span class="property">detail</span>.<span class="property">value</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 选择分类</span></span><br><span class="line">  <span class="title function_">selectCategory</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      <span class="attr">selectedCategory</span>: e.<span class="property">currentTarget</span>.<span class="property">dataset</span>.<span class="property">category</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 日期选择</span></span><br><span class="line">  <span class="title function_">onDateChange</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      <span class="attr">date</span>: e.<span class="property">detail</span>.<span class="property">value</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 备注输入</span></span><br><span class="line">  <span class="title function_">onRemarkInput</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      <span class="attr">remark</span>: e.<span class="property">detail</span>.<span class="property">value</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 保存账单</span></span><br><span class="line">  <span class="title function_">saveBill</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; currentType, amount, selectedCategory, date, remark &#125; = <span class="variable language_">this</span>.<span class="property">data</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 校验金额</span></span><br><span class="line">    <span class="keyword">if</span> (!amount || <span class="title class_">Number</span>(amount) &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">      wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;请输入正确的金额&#x27;</span>,</span><br><span class="line">        <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造账单数据</span></span><br><span class="line">    <span class="keyword">const</span> newBill = &#123;</span><br><span class="line">      <span class="attr">id</span>: <span class="title class_">Date</span>.<span class="title function_">now</span>(), <span class="comment">// 用时间戳作为唯一id</span></span><br><span class="line">      <span class="attr">type</span>: currentType,</span><br><span class="line">      <span class="attr">amount</span>: <span class="title class_">Number</span>(amount).<span class="title function_">toFixed</span>(<span class="number">2</span>),</span><br><span class="line">      <span class="attr">category</span>: selectedCategory,</span><br><span class="line">      <span class="attr">date</span>: date,</span><br><span class="line">      <span class="attr">remark</span>: remark,</span><br><span class="line">      <span class="attr">createTime</span>: <span class="title class_">Date</span>.<span class="title function_">now</span>()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取原有账单列表，新增账单</span></span><br><span class="line">    <span class="keyword">const</span> billList = app.<span class="property">globalData</span>.<span class="property">billList</span></span><br><span class="line">    billList.<span class="title function_">unshift</span>(newBill) <span class="comment">// 新增账单放在最前面</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 保存到本地存储</span></span><br><span class="line">    app.<span class="title function_">saveBillData</span>(billList)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 保存成功提示</span></span><br><span class="line">    wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">      <span class="attr">title</span>: <span class="string">&#x27;保存成功&#x27;</span>,</span><br><span class="line">      <span class="attr">icon</span>: <span class="string">&#x27;success&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重置表单</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">      <span class="attr">amount</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      <span class="attr">remark</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      <span class="attr">date</span>: <span class="title function_">formatDate</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="4-3-2-其他页面开发"><a href="#4-3-2-其他页面开发" class="headerlink" title="4.3.2 其他页面开发"></a>4.3.2 其他页面开发</h4><p>账单列表页、统计页、分类管理页的完整代码，可基于上述逻辑扩展，核心逻辑为：</p>
+<ul>
+<li>账单列表页：从全局数据读取账单列表，按日期分组渲染，实现删除功能</li>
+<li>统计页：引入echarts-for-weixin组件，渲染收支分类饼图，展示月度统计数据</li>
+<li>分类管理页：实现自定义分类的新增、删除，保存到本地存储</li>
+</ul>
+<h2 id="五、本地调试与功能测试"><a href="#五、本地调试与功能测试" class="headerlink" title="五、本地调试与功能测试"></a>五、本地调试与功能测试</h2><p>开发完成后，需在开发者工具和真机上完成全功能测试，确保上线后无异常。</p>
+<h3 id="5-1-开发者工具内调试"><a href="#5-1-开发者工具内调试" class="headerlink" title="5.1 开发者工具内调试"></a>5.1 开发者工具内调试</h3><p>点击开发者工具顶部「编译」按钮，重新编译项目，查看控制台是否有报错<br>逐一测试所有功能：<br>收支记账功能：输入金额、选择分类，点击保存，查看是否提示成功<br>数据存储：保存账单后，重新编译项目，查看账单列表是否正常加载<br>页面跳转：点击底部 tab 栏，查看页面切换是否正常<br>边界情况：测试空金额、0 金额、超大金额等异常输入，是否有正确的校验提示</p>
+<h3 id="5-2-真机调试"><a href="#5-2-真机调试" class="headerlink" title="5.2 真机调试"></a>5.2 真机调试</h3><p>小程序的部分能力（如存储、性能）在开发者工具和真机上有差异，必须进行真机测试：<br>点击开发者工具顶部「真机调试」按钮，选择「自动真机调试」<br>用手机微信扫码，打开真机调试面板<br>在手机上逐一测试所有功能，确保样式无错乱、功能正常、数据保存无丢失<br>[png]</p>
+<blockquote>
+<p>截图说明：标注顶部「真机调试」按钮位置、扫码弹窗的二维码区域</p>
+</blockquote>
+<h2 id="六、小程序上线全流程（关键步骤-截图说明）"><a href="#六、小程序上线全流程（关键步骤-截图说明）" class="headerlink" title="六、小程序上线全流程（关键步骤 + 截图说明）"></a>六、小程序上线全流程（关键步骤 + 截图说明）</h2><p>测试完成后，即可开始上线流程，全程在微信开发者工具和微信公众平台操作，分为 4 个核心步骤。</p>
+<h3 id="6-1-步骤-1：完善小程序基础信息（公众平台）"><a href="#6-1-步骤-1：完善小程序基础信息（公众平台）" class="headerlink" title="6.1 步骤 1：完善小程序基础信息（公众平台）"></a>6.1 步骤 1：完善小程序基础信息（公众平台）</h3><ol>
+<li>登录微信公众平台小程序后台，进入「设置」→「基本设置」</li>
+<li>完善小程序信息：</li>
+</ol>
+<ul>
+<li>小程序名称：2-10 个字符，不能包含敏感词，如「极简记账本」</li>
+<li>小程序头像：尺寸 144*144px，清晰无二维码、无广告</li>
+<li>小程序介绍：简要说明功能，如「个人轻量化记账工具，支持收支记账、账单统计、分类管理」</li>
+<li>服务类目：选择「工具 - 备忘录 &#x2F; 记账」（个人开发者可直接选择，无需资质）</li>
+</ul>
+<ol start="3">
+<li>提交信息审核，等待平台审核通过（一般 1-2 小时）<br>[png]<blockquote>
+<p>截图说明：标注「小程序名称、头像、介绍、服务类目」四个核心填写区域</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="6-2-步骤-2：上传代码到公众平台（开发者工具）"><a href="#6-2-步骤-2：上传代码到公众平台（开发者工具）" class="headerlink" title="6.2 步骤 2：上传代码到公众平台（开发者工具）"></a>6.2 步骤 2：上传代码到公众平台（开发者工具）</h3><ol>
+<li>回到微信开发者工具，确认项目无报错、功能测试正常</li>
+<li>点击开发者工具右上角「上传」按钮</li>
+<li>填写版本信息：</li>
+</ol>
+<ul>
+<li>版本号：按语义化填写，如1.0.0</li>
+<li>项目备注：填写本次上线的功能说明，如「初始版本，实现收支记账、账单列表、数据统计功能」</li>
+</ul>
+<ol start="4">
+<li>点击「上传」，确认后即可将代码上传到小程序后台<br>[png]<blockquote>
+<p>截图说明：标注「版本号填写区」、「项目备注填写区」、「上传按钮」</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="6-3-步骤-3：提交代码审核（公众平台）"><a href="#6-3-步骤-3：提交代码审核（公众平台）" class="headerlink" title="6.3 步骤 3：提交代码审核（公众平台）"></a>6.3 步骤 3：提交代码审核（公众平台）</h3><ol>
+<li>回到微信公众平台小程序后台，进入「管理」→「版本管理」</li>
+<li>找到「开发版本」模块，即可看到刚才上传的代码</li>
+<li>点击「提交审核」，进入审核信息填写页面</li>
+<li>填写审核信息：</li>
+</ol>
+<ul>
+<li>功能页面：选择所有页面，填写每个页面的功能说明，如「首页：收支记账功能」</li>
+<li>测试账号：无需填写（本项目无登录功能）</li>
+<li>审核备注：简要说明小程序功能，帮助审核人员快速了解</li>
+</ul>
+<ol start="5">
+<li>确认信息无误后，点击「提交审核」，等待平台审核（个人小程序一般 1-3 个工作日）<br>[png]<blockquote>
+<p>截图说明：标注「开发版本」区域、「提交审核」按钮位置<br>6.4 步骤 4：发布上线</p>
+</blockquote>
+</li>
+<li>审核通过后，微信会发送服务通知提醒你审核结果</li>
+<li>登录微信公众平台小程序后台，进入「管理」→「版本管理」</li>
+<li>找到「审核通过，待发布」的版本，点击「发布」</li>
+<li>选择「全量发布」，确认后即可完成上线</li>
+<li>发布完成后，等待 10-30 分钟，即可在微信中搜索到你的小程序，所有人都可访问使用<br>[png]<blockquote>
+<p>截图说明：标注「审核通过待发布版本」、「全量发布」按钮位置</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="七、常见问题与避坑指南"><a href="#七、常见问题与避坑指南" class="headerlink" title="七、常见问题与避坑指南"></a>七、常见问题与避坑指南</h2><h3 id="7-1-开发阶段常见问题"><a href="#7-1-开发阶段常见问题" class="headerlink" title="7.1 开发阶段常见问题"></a>7.1 开发阶段常见问题</h3><ol>
+<li><strong>页面无法跳转 &#x2F; 找不到页面：检查app.json的pages数组是否注册了对应页面，路径是否完全匹配</strong></li>
+<li><strong>本地存储数据丢失：</strong>检查是否调用了wx.setStorageSync保存数据，小程序卸载后本地存储会清空，属于正常现象</li>
+<li><strong>样式在真机上错乱：</strong>避免使用固定 px 单位，统一使用 rpx 自适应单位，检查是否有兼容问题的 CSS 属性</li>
+</ol>
+<h3 id="7-2-审核被拒常见原因与解决方案"><a href="#7-2-审核被拒常见原因与解决方案" class="headerlink" title="7.2 审核被拒常见原因与解决方案"></a>7.2 审核被拒常见原因与解决方案</h3><ol>
+<li><strong>服务类目选择错误：</strong>必须选择「工具 - 记账 &#x2F; 备忘录」类目，不要选择金融相关类目（个人开发者无资质）</li>
+<li><strong>功能描述不符：</strong>小程序介绍和实际功能必须一致，不要宣传未实现的功能</li>
+<li><strong>包含敏感内容 &#x2F; 广告：</strong>个人小程序禁止添加广告、引流、支付相关功能，纯工具类功能可正常过审</li>
+<li><strong>缺少用户协议 &#x2F; 隐私政策：</strong>若小程序收集用户数据，需在设置页添加用户协议和隐私政策，本项目纯本地存储无数据收集，无需添加</li>
+</ol>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2026/04/02/iOS%E7%8A%B6%E6%80%81%E6%9C%BA%E4%BD%BF%E7%94%A8%E5%85%A8%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E6%88%98%EF%BC%8C%E5%91%8A%E5%88%AB%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%B7%B7%E4%B9%B1/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">iOS状态机使用全解析：从入门到实战，告别状态管理混乱</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="https://s.gravatar.com/avatar/2d6b803eea37de0257620d5fabee7e64?s=200&amp;r=g&amp;d=retro" class="soft-size--round soft-style--box" alt="mmxhbr">
+    
+    
+      <h2>mmxhbr</h2>
+    
+    
+      <p>贵在坚持</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>3</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        4
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        10
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+<section class="widget-toc widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-toc" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M134.50666666 767.46666668H460.8c27.73333333 0 50.24000001 22.50666668 50.24000001 50.23999999v50.13333333c0 27.73333333-22.50666668 50.24000001-50.24000001 50.24000001H134.50666666c-27.73333333 0-50.24000001-22.50666668-50.23999999-50.24000001v-50.13333333c0.10666668-27.73333333 22.50666668-50.24000001 50.24000001-50.24000001zM84.37333332 541.65333333h326.18666669c27.73333333 0 50.24000001 22.39999999 50.23999999 50.13333334v50.24000001c0 27.73333333-22.50666668 50.24000001-50.24000002 50.23999999H84.37333332c-27.73333333 0-50.24000001-22.50666668-50.23999999-50.23999999v-50.24000001c0-27.73333333 22.50666668-50.13333334 50.24000001-50.13333334zM134.50666666 315.83999999H460.8c27.73333333 0 50.24000001 22.50666668 50.24000001 50.24000001v50.24000001c0 27.73333333-22.50666668 50.13333334-50.24000001 50.13333333H134.50666666c-27.73333333 0-50.24000001-22.39999999-50.23999999-50.13333333v-50.24000001c0.10666668-27.84000001 22.50666668-50.24000001 50.24000001-50.23999999zM209.81333332 89.91999999h326.18666671c27.73333333 0 50.24000001 22.39999999 50.23999997 50.13333335v50.23999999c0 27.73333333-22.50666668 50.24000001-50.24000001 50.24000001H209.81333332c-27.73333333 0-50.24000001-22.50666668-50.23999999-50.24000001v-50.24000001c0-27.73333333 22.50666668-50.13333334 50.24000001-50.13333333zM692.05333333 623.36l274.66666669 176.00000002c23.36000001 14.93333333 30.08 45.97333334 15.14666666 69.33333332L954.77333334 910.93333333c-14.93333333 23.25333334-45.97333334 30.08-69.33333335 15.14666667l-274.66666666-176c-23.36000001-14.93333333-30.08-45.97333334-15.14666667-69.33333333l27.09333334-42.24000001c14.93333333-23.36000001 46.08000001-30.08 69.33333333-15.14666666z" fill="currentColor"></path>
+</svg>
+    <span>TOC</span>
+  </div>
+  <div class="widget-body">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E7%BD%AE%E5%87%86%E5%A4%87%EF%BC%88%E5%BC%80%E5%8F%91%E5%89%8D%E5%BF%85%E5%81%9A%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">一、前置准备（开发前必做）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%B3%A8%E5%86%8C%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B4%A6%E5%8F%B7"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 注册微信小程序账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%AE%89%E8%A3%85%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 安装微信开发者工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E8%AF%B4%E6%98%8E"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 前置知识说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%8E%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">二、项目初始化与结构说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%96%B0%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 新建小程序项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%A1%B9%E7%9B%AE%E6%A0%B8%E5%BF%83%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 项目核心目录结构说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%9C%80%E6%B1%82%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%8A%9F%E8%83%BD%E8%A7%84%E5%88%92"><span class="toc-number">3.</span> <span class="toc-text">三、需求设计与功能规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%8F%AF%E7%9B%B4%E6%8E%A5%E5%A4%8D%E5%88%B6%E5%A4%8D%E7%94%A8%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">四、核心代码实现（可直接复制复用）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 全局配置实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E5%B0%81%E8%A3%85"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 工具函数封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%A0%B8%E5%BF%83%E9%A1%B5%E9%9D%A2%E5%BC%80%E5%8F%91"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 核心页面开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E4%B8%8E%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">5.</span> <span class="toc-text">五、本地调试与功能测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E5%86%85%E8%B0%83%E8%AF%95"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 开发者工具内调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E7%9C%9F%E6%9C%BA%E8%B0%83%E8%AF%95"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 真机调试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8A%E7%BA%BF%E5%85%A8%E6%B5%81%E7%A8%8B%EF%BC%88%E5%85%B3%E9%94%AE%E6%AD%A5%E9%AA%A4-%E6%88%AA%E5%9B%BE%E8%AF%B4%E6%98%8E%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">六、小程序上线全流程（关键步骤 + 截图说明）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E5%AE%8C%E5%96%84%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%9F%BA%E7%A1%80%E4%BF%A1%E6%81%AF%EF%BC%88%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%EF%BC%89"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 步骤 1：完善小程序基础信息（公众平台）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E5%88%B0%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%EF%BC%88%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%EF%BC%89"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 步骤 2：上传代码到公众平台（开发者工具）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%AE%A1%E6%A0%B8%EF%BC%88%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%EF%BC%89"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 步骤 3：提交代码审核（公众平台）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E9%81%BF%E5%9D%91%E6%8C%87%E5%8D%97"><span class="toc-number">7.</span> <span class="toc-text">七、常见问题与避坑指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E5%BC%80%E5%8F%91%E9%98%B6%E6%AE%B5%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 开发阶段常见问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E5%AE%A1%E6%A0%B8%E8%A2%AB%E6%8B%92%E5%B8%B8%E8%A7%81%E5%8E%9F%E5%9B%A0%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 审核被拒常见原因与解决方案</span></a></li></ol></li></ol>
+  </div>
+</section>
+
+
+      
+
+      <section class="widget-categories widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+      <span>CATEGORIES</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categories-list">
+      
+        <li class="categories-list-item">
+          <a href="/categories/Hexo/">
+            Hexo (1)
+          </a>
+        </li>
+        
+        <li class="categories-list-item">
+          <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+            微信小程序 (1)
+          </a>
+        </li>
+        
+        <li class="categories-list-item">
+          <a href="/categories/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+            博客搭建 (1)
+          </a>
+        </li>
+        
+        <li class="categories-list-item">
+          <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">
+            前端开发 (1)
+          </a>
+        </li>
+        
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      <a href="/tags/GitHub-Pages/" style="font-size: 10px;" class="tags-cloud-0">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;" class="tags-cloud-0">Hexo</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AE%9E%E6%88%98/" style="font-size: 10px;" class="tags-cloud-0">前端实战</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/" style="font-size: 10px;" class="tags-cloud-0">博客发布</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/" style="font-size: 10px;" class="tags-cloud-0">博客配置</a> <a href="/tags/%E5%8E%9F%E7%94%9F%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;" class="tags-cloud-0">原生小程序</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8A%E7%BA%BF/" style="font-size: 10px;" class="tags-cloud-0">小程序上线</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;" class="tags-cloud-0">微信小程序</a> <a href="/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/" style="font-size: 10px;" class="tags-cloud-0">新手教程</a> <a href="/tags/%E8%AE%B0%E8%B4%A6%E6%9C%AC%E5%BC%80%E5%8F%91/" style="font-size: 10px;" class="tags-cloud-0">记账本开发</a>
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="https://github.com/mmxhbr/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+      
+    </div>
+     
+    <p>&copy; 2026 <a href="/" target="_blank">mmxhbr</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  
+
+
+
+
+
+
+
+
+<!-- copy button  -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+<!-- https://clipboardjs.com/ -->
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
